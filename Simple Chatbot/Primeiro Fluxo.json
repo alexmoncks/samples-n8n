@@ -107,8 +107,8 @@
       {
         "json": {
           "chatInput": "Olá",
-          "sessionId": "5512997387715@s.whatsapp.net",
-          "remoteJid": "5512997387715@s.whatsapp.net",
+          "sessionId": "{telefone}@s.whatsapp.net",
+          "remoteJid": "{telefone}@s.whatsapp.net",
           "pushName": "Alexander Marra Moncks",
           "keyId": "3EB09751F6F11CCD62B43A",
           "fromMe": false,
