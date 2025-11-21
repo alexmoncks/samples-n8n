@@ -70,7 +70,7 @@
       "name": "OpenAI Chat Model1",
       "credentials": {
         "openAiApi": {
-          "id": "hlA0njUpjEK8P9KT",
+          "id": "{KEY}",
           "name": "Aula PMEs"
         }
       }
