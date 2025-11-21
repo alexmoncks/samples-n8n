@@ -147,7 +147,7 @@
       "name": "upload da imagem",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       },
@@ -582,7 +582,7 @@
           "parameters": [
             {
               "name": "x-goog-api-key",
-              "value": "AIzaSyCqWscPnS_az5_TrX8JBts9Ba_4RIII6Gc"
+              "value": "{Key}"
             }
           ]
         },
@@ -664,7 +664,7 @@
       "name": "Download produto",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       },
@@ -706,7 +706,7 @@
       "name": "Download modelo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{KEY}",
           "name": "Alex Marra Drive"
         }
       },
@@ -786,7 +786,7 @@
       "name": "cria diretorio do projeto1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{KEY}",
           "name": "Alex Marra Drive"
         }
       }
@@ -849,7 +849,7 @@
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       }
@@ -910,7 +910,7 @@
       "name": "upload da imagem1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       }
@@ -941,7 +941,7 @@
       "name": "muda_permissao1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       }
@@ -1058,7 +1058,7 @@
       "name": "Google Drive1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       }
@@ -1196,7 +1196,7 @@
           "parameters": [
             {
               "name": "x-goog-api-key",
-              "value": "AIzaSyCqWscPnS_az5_TrX8JBts9Ba_4RIII6Gc"
+              "value": "{Key}"
             }
           ]
         },
@@ -1234,7 +1234,7 @@
       "name": "Download modelo1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "UgDhuI94CoxyGlHp",
+          "id": "{Key}",
           "name": "Alex Marra Drive"
         }
       }
