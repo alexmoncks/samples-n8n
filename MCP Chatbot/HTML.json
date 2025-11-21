@@ -1,0 +1,132 @@
+{
+  "name": "HTML",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "cliente",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*",
+          "ignoreBots": true,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/html; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "e9541b05-a956-44e5-8de4-a2fcb62c9117",
+      "name": "Webhook",
+      "webhookId": "23570e86-5f8b-4870-86ec-6ab4097c591e"
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Asistente Virtual IA - Disponible 24/7</title>\n    <link href=\"https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css\" rel=\"stylesheet\" />\n    <style>\n        * {\n            margin: 0;\n            padding: 0;\n            box-sizing: border-box;\n        }\n\n        body {\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n            line-height: 1.6;\n            color: #333;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            min-height: 100vh;\n        }\n\n        .container {\n            max-width: 1200px;\n            margin: 0 auto;\n            padding: 0 20px;\n        }\n\n        header {\n            padding: 20px 0;\n            text-align: center;\n        }\n\n        .logo {\n            font-size: 2em;\n            font-weight: bold;\n            color: white;\n            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);\n        }\n\n        .hero {\n            text-align: center;\n            padding: 80px 20px;\n            color: white;\n        }\n\n        .hero h1 {\n            font-size: 3em;\n            margin-bottom: 20px;\n            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);\n        }\n\n        .hero p {\n            font-size: 1.3em;\n            margin-bottom: 40px;\n            opacity: 0.95;\n        }\n\n        .cta-button {\n            display: inline-block;\n            padding: 15px 40px;\n            background: white;\n            color: #667eea;\n            text-decoration: none;\n            border-radius: 50px;\n            font-weight: bold;\n            font-size: 1.1em;\n            transition: transform 0.3s, box-shadow 0.3s;\n            box-shadow: 0 4px 15px rgba(0,0,0,0.2);\n        }\n\n        .cta-button:hover {\n            transform: translateY(-3px);\n            box-shadow: 0 6px 20px rgba(0,0,0,0.3);\n        }\n\n        .features {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n            gap: 30px;\n            padding: 60px 20px;\n            background: rgba(255,255,255,0.1);\n            backdrop-filter: blur(10px);\n            border-radius: 20px;\n            margin: 40px 0;\n        }\n\n        .feature {\n            text-align: center;\n            padding: 30px;\n            background: white;\n            border-radius: 15px;\n            box-shadow: 0 4px 15px rgba(0,0,0,0.1);\n            transition: transform 0.3s;\n        }\n\n        .feature:hover {\n            transform: translateY(-5px);\n        }\n\n        .feature-icon {\n            font-size: 3em;\n            margin-bottom: 15px;\n        }\n\n        .feature h3 {\n            margin-bottom: 10px;\n            color: #667eea;\n        }\n\n        .feature p {\n            color: #666;\n        }\n\n        footer {\n            text-align: center;\n            padding: 40px 20px;\n            color: white;\n            opacity: 0.9;\n        }\n\n        @media (max-width: 768px) {\n            .hero h1 {\n                font-size: 2em;\n            }\n\n            .hero p {\n                font-size: 1.1em;\n            }\n\n            .features {\n                grid-template-columns: 1fr;\n            }\n        }\n    </style>\n</head>\n<body>\n    <header>\n        <div class=\"container\">\n            <div class=\"logo\">🤖 AsistenteIA</div>\n        </div>\n    </header>\n\n    <main>\n        <section class=\"hero\">\n            <div class=\"container\">\n                <h1>Tu Asistente Virtual Inteligente</h1>\n                <p>Respuestas instantáneas, disponible 24/7, potenciado por inteligencia artificial</p>\n                <a href=\"#\" class=\"cta-button\" onclick=\"openChat(); return false;\">Comenzar Conversación</a>\n            </div>\n        </section>\n\n        <section class=\"container\">\n            <div class=\"features\">\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">⚡</div>\n                    <h3>Respuestas Rápidas</h3>\n                    <p>Obtén respuestas inmediatas a tus preguntas en cuestión de segundos</p>\n                </div>\n\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">🌐</div>\n                    <h3>Disponible 24/7</h3>\n                    <p>Siempre disponible, cualquier día, cualquier hora, sin interrupciones</p>\n                </div>\n\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">🧠</div>\n                    <h3>Inteligencia Artificial</h3>\n                    <p>Potenciado por IA avanzada para entender y resolver tus necesidades</p>\n                </div>\n\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">🔒</div>\n                    <h3>Seguro y Privado</h3>\n                    <p>Tus conversaciones están protegidas con los más altos estándares de seguridad</p>\n                </div>\n\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">💬</div>\n                    <h3>Conversación Natural</h3>\n                    <p>Interactúa de forma natural como si hablaras con una persona real</p>\n                </div>\n\n                <div class=\"feature\">\n                    <div class=\"feature-icon\">🎯</div>\n                    <h3>Soluciones Precisas</h3>\n                    <p>Respuestas específicas y personalizadas para cada situación</p>\n                </div>\n            </div>\n        </section>\n    </main>\n\n    <footer>\n        <div class=\"container\">\n            <p>&copy; 2024 AsistenteIA. Todos los derechos reservados.</p>\n            <p>Desarrollado con n8n y tecnología de vanguardia</p>\n        </div>\n    </footer>\n\n    <script type=\"module\">\n        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';\n        \n        window.chatInstance = createChat({\n            webhookUrl: 'https://webhook.mmsoft.com.br/webhook/df02626d-b7e1-4238-ad46-dd09842980fd/chat',\n            mode: 'window',\n            showWelcomeScreen: true,\n            initialMessages: [\n                '¡Hola! 👋',\n                'Mi nombre es Nathan. ¿Cómo puedo ayudarte hoy?'\n            ],\n            i18n: {\n                es: {\n                    title: 'Inicia una conversación. Estamos aquí para ayudarte 24/7.',\n                    footer: 'Desarrollado por n8n',\n                    subtitle: 'Comienza a chatear',\n                    inputPlaceholder: 'Escribe tu mensaje...',\n                    getStarted: 'Nueva conversación',\n                    closeButtonTooltip: 'Cerrar chat'\n                }\n            }\n        });\n    </script>\n\n    <script>\n        function openChat() {\n            // O botão do chat n8n aparecerá automaticamente no canto inferior direito\n            // Esta função pode ser usada para adicionar lógica adicional se necessário\n            console.log('Abrindo chat...');\n        }\n    </script>\n</body>\n</html>"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "77e5da6c-3ec7-437f-91d8-8f90179778ea",
+      "name": "HTML"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.html }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "a83883d3-efc5-4094-9b0e-14af8398c58b",
+      "name": "Respond to Webhook"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "headers": {
+            "host": "n8n.mmsoft.com.br",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-encoding": "gzip, deflate, br, zstd",
+            "accept-language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+            "cache-control": "max-age=0",
+            "cookie": "rl_page_init_referrer=RudderEncrypt%3AU2FsdGVkX189MNBpxhYQMVRVx8wQ%2FhVlXKHGZ%2BTw5H8%3D; rl_page_init_referring_domain=RudderEncrypt%3AU2FsdGVkX19QbL91WFPbfLEWCdzaXpCcmhzN48j5KxQ%3D; rl_anonymous_id=RudderEncrypt%3AU2FsdGVkX1%2B3cAeDW28PM4x%2FYfbbirQlH2AudaYfjmsY%2BUA%2B%2BLQybCanj7J40ANQ4mnoZjyg1QEnzhnE0CXeDA%3D%3D; rl_user_id=RudderEncrypt%3AU2FsdGVkX1%2FMHIuSWB2x6uoYx2Ct22UyX82K5sCY%2B9upfgEvolLJ%2BhEuZ12GdOV5WyNqWS2M8W%2FktJvBurt3obDDoEf%2FEIssFcNFiLsRxqM1HQWA4TgHV2O7YcRmhkY%2BTBefG4966XEuY7RSZQPdShsGFfIVQcyFquvhlpHihYY%3D; rl_trait=RudderEncrypt%3AU2FsdGVkX19Dcb1WwLVc1GuEp3o1BCsj09e82cwzf0hNQnvsmsUPs2eX46K5vTerOnHhWZTRM1sBQWyq%2FoefkwcRufFxtoBdmdoRjwL843vAW2%2FYI4u57%2BZFm92x7Td5d4v2II9Owd78u63ncSt0wHHTbLRm%2BuNvG4Nx61fm%2FJs%3D; ph_phc_4URIAm1uYfJO7j8kWSe0J8lc8IqnstRLS7Jx8NcakHo_posthog=%7B%22distinct_id%22%3A%223e34dc8b5ef8facf2b5e7a040f8131bb130efca1e644ecdadc706540f26c6b84%235d835ef3-a473-44d5-9142-3f8249d3a375%22%2C%22%24sesid%22%3A%5B1763667080390%2C%22019aa2b4-650d-714e-a46a-32198a71f597%22%2C1763666322687%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22https%3A%2F%2Fn8n.mmsoft.com.br%2Fhome%2Fworkflows%22%7D%7D; rl_session=RudderEncrypt%3AU2FsdGVkX19Q%2Bo3WUTiB6hM57ANF%2BGXRUHCjyzC4WoLUYJPq75VQ3hU68vuhud8zN06wFCN4D9ungi75EKsikQ2VfRH%2FEStuI4UrMUqcvS4csu8av5IJT7KzaWDUrJsxguufPHfFbrQ%2BVGDErdmiDg%3D%3D",
+            "if-none-match": "W/\"295-Gs3dRjlsXEUeweccRlwjc1V3gys\"",
+            "priority": "u=0, i",
+            "sec-ch-ua": "\"Chromium\";v=\"142\", \"Google Chrome\";v=\"142\", \"Not_A Brand\";v=\"99\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "none",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+            "x-forwarded-for": "186.249.158.14",
+            "x-forwarded-host": "n8n.mmsoft.com.br",
+            "x-forwarded-port": "443",
+            "x-forwarded-proto": "https",
+            "x-forwarded-server": "c0abf920fa4f",
+            "x-real-ip": "186.249.158.14"
+          },
+          "params": {},
+          "query": {},
+          "body": {},
+          "webhookUrl": "https://webhook.mmsoft.com.br/webhook/cliente",
+          "executionMode": "production"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b6f394c1-f025-4c29-b6a0-be0cd9344ff4",
+  "meta": {
+    "instanceId": "3e34dc8b5ef8facf2b5e7a040f8131bb130efca1e644ecdadc706540f26c6b84"
+  },
+  "id": "73G1p5fSwmwPDRBC",
+  "tags": []
+}

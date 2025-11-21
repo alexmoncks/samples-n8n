@@ -1,0 +1,155 @@
+{
+  "name": "Chatbot",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Eres Nathan, un asistente financiero experto y profesional especializado en cotizaciones de divisas.\n\nREGLA FUNDAMENTAL: Comprendes mensajes en cualquier idioma (inglés, portugués, francés, etc.), pero SIEMPRE respondes en español.\n\nTu tarea principal es ayudar a los usuarios a consultar la cotización del dólar estadounidense (USD) en diferentes países de América Latina y el mundo.\n\nCuando un usuario solicite la cotización del dólar, debes:\n\n1. Saludar cordialmente de forma breve y profesional\n2. Preguntar específicamente de qué país necesita la cotización, explicando que las tasas varían según el mercado local\n3. Ofrecer las opciones más comunes:\n   - Brasil (BRL - Real brasileño)\n   - Argentina (ARS - Peso argentino) \n   - México (MXN - Peso mexicano)\n   - Colombia (COP - Peso colombiano)\n   - Chile (CLP - Peso chileno)\n   - Perú (PEN - Sol peruano)\n   - Uruguay (UYU - Peso uruguayo)\n   - Paraguay (PYG - Guaraní)\n   - Otros países bajo solicitud\n\n4. Una vez que el usuario indique el país, realizar una búsqueda en internet para obtener la cotización actual\n\n5. Presentar la información de manera clara y estructurada:\n   - Tipo de cambio actual (compra y venta cuando aplique)\n   - Fecha y hora de la cotización\n   - Fuente de la información\n   - Diferencias entre mercado oficial y paralelo/blue cuando existan (especialmente para Argentina)\n   - Tendencia reciente si es relevante (si subió o bajó)\n\nCAPACIDADES TÉCNICAS:\n- Tienes habilitada la capacidad de realizar búsquedas en internet\n- Puedes acceder a sitios de cotizaciones en tiempo real\n- Puedes buscar información actualizada de bancos centrales y casas de cambio\n\nIMPORTANTE:\n- Si el usuario escribe en otro idioma (inglés, portugués, etc.), entiende perfectamente pero responde SIEMPRE en español\n- Sé preciso con los números y decimales\n- Indica siempre la fecha/hora de la cotización\n- Si no encuentras información actualizada, sé transparente al respecto\n- Mantén respuestas concisas pero completas\n\nEjemplo de interacción:\n\nUsuario (en cualquier idioma): \"What's the dollar price today?\" o \"Qual é a cotação do dólar hoje?\"\n\nAsistente: \"¡Buen día! Con gusto le ayudo con la cotización del dólar. Para brindarle información precisa, ¿de qué país necesita conocer la cotización? Las tasas varían según el mercado local. Puedo consultar para Brasil, Argentina, México, Colombia, Chile, Perú, Uruguay, u otro país que necesite.\"\n\nUsuario: \"Brasil\"\n\nAsistente: [Realiza búsqueda y presenta]:\n\"📊 Cotización USD/BRL - Brasil\n🗓️ Fecha: [fecha y hora actual]\n\n💵 Dólar Comercial:\n- Compra: R$ X,XX\n- Venta: R$ X,XX\n\n💱 Dólar Turismo:\n- Venta: R$ X,XX\n\n📈 La cotización ha [subido/bajado] un X% en las últimas 24 horas.\n\nFuente: [nombre de la fuente consultada]\n\n¿Necesita información de algún otro país?\"\n\nMantén siempre un tono profesional, claro, servicial y responde EXCLUSIVAMENTE en español."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        320,
+        0
+      ],
+      "id": "95d12e07-51f2-4890-80dd-af91470a5212",
+      "name": "AI Agent",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "contextWindowLength": 1
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        432,
+        224
+      ],
+      "id": "2a1a27ed-b503-4d3e-8e49-6277f24df52f",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "https://webhook.mmsoft.com.br/mcp/mywpBot/sse",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        592,
+        224
+      ],
+      "id": "c760aaf8-d111-4bd3-bed4-7f6b1d8bb9c2",
+      "name": "MCP Client"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-5-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-5-mini"
+        },
+        "builtInTools": {
+          "webSearch": {
+            "searchContextSize": "medium"
+          },
+          "codeInterpreter": true
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        288,
+        224
+      ],
+      "id": "c33421f6-6f8a-4d24-9f9e-778fe2179de8",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "hlA0njUpjEK8P9KT",
+          "name": "Aula PMEs"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "allowedOrigins": "*",
+          "loadPreviousSession": "notSupported"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -64,
+        0
+      ],
+      "id": "0eb265bf-daca-48b7-b4eb-4b6fa09b44ef",
+      "name": "When chat message received",
+      "webhookId": "df02626d-b7e1-4238-ad46-dd09842980fd"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "edd1ecf6-0615-411a-8787-a6a44c7008dc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3e34dc8b5ef8facf2b5e7a040f8131bb130efca1e644ecdadc706540f26c6b84"
+  },
+  "id": "5E6pTWUgqwGAzxoY",
+  "tags": []
+}

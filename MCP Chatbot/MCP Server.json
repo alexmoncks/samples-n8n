@@ -1,0 +1,284 @@
+{
+  "name": "MCP Server",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "mywpBot"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 1,
+      "position": [
+        16,
+        -224
+      ],
+      "id": "b2065bb2-b434-44ee-a421-5cf2f005e6fd",
+      "name": "MCP Server Trigger",
+      "webhookId": "1d98b80e-ea72-429f-813e-b0b34911281b"
+    },
+    {
+      "parameters": {
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "mmsoft.solucaodigital@gmail.com",
+          "mode": "list",
+          "cachedResultName": "MMSoft Agenda"
+        },
+        "timeMin": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start_Time', ``, 'string') }}",
+        "timeMax": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End_Time', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -144,
+        0
+      ],
+      "id": "a62798e2-4711-4a3e-90bf-a8711f040ec3",
+      "name": "Google Calendar - Busca Horario",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "f3cEgTJQ8eRM5oHZ",
+          "name": "Google Calendar - Alex Marra"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "mmsoft.solucaodigital@gmail.com",
+          "mode": "list",
+          "cachedResultName": "MMSoft Agenda"
+        },
+        "start": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Start', ``, 'string') }}",
+        "end": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('End', ``, 'string') }}",
+        "useDefaultReminders": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Use_Default_Reminders', `Verifique a data e coloque o nome do evento correto para a agenda.`, 'boolean') }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        -16,
+        0
+      ],
+      "id": "170dd928-c7b5-4bfc-bcc7-7a99c8e5d38b",
+      "name": "Google Calendar - Criar Eventos",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "f3cEgTJQ8eRM5oHZ",
+          "name": "Google Calendar - Alex Marra"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "mmsoft.solucaodigital@gmail.com",
+          "mode": "list",
+          "cachedResultName": "MMSoft Agenda"
+        },
+        "eventId": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Event_ID', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        0
+      ],
+      "id": "beaef603-429c-49f7-bbfa-3e7d8eea579b",
+      "name": "Google Calendar - Apagar Evento",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "f3cEgTJQ8eRM5oHZ",
+          "name": "Google Calendar - Alex Marra"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "includeTime": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Include_Current_Time', ``, 'boolean') }}",
+        "outputFieldName": "={{ /*n8n-auto-generated-fromAI-override*/ $fromAI('Output_Field_Name', ``, 'string') }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dateTimeTool",
+      "typeVersion": 2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "3955d4f3-6c5a-4d6c-9456-37eaefb0e1c0",
+      "name": "Date & Time"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "SMSTable",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        352,
+        0
+      ],
+      "id": "0aa1268c-12ae-42c9-a927-2ac52fe53c75",
+      "name": "Supabase",
+      "executeOnce": false,
+      "retryOnFail": true,
+      "notesInFlow": false,
+      "credentials": {
+        "supabaseApi": {
+          "id": "c0ZWii5eo5O4ofke",
+          "name": "Local Supabase"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        -144,
+        -480
+      ],
+      "id": "cb79650d-4a70-49d5-8251-ac13f6601cd8",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        -480
+      ],
+      "id": "85cad7eb-28e2-4bab-bc6a-9a605b570ed2",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "rDE1Ij39rtCnxgU3",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/rDE1Ij39rtCnxgU3",
+          "cachedResultName": "MCP Server"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        96,
+        192
+      ],
+      "id": "739f67c9-5b68-4f25-86c7-20d06e9670fd",
+      "name": "Execute Workflow"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Calendar - Busca Horario": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar - Criar Eventos": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar - Apagar Evento": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date & Time": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ],
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0c06f9b1-2322-42ec-9095-13f7773575c1",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "3e34dc8b5ef8facf2b5e7a040f8131bb130efca1e644ecdadc706540f26c6b84"
+  },
+  "id": "rDE1Ij39rtCnxgU3",
+  "tags": []
+}
